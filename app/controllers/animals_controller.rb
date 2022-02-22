@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  
+
   def index
   end
 
@@ -10,5 +10,11 @@ class AnimalsController < ApplicationController
   end
 
   def create
+  end
+
+private
+
+  def animal_params
+    params.require(:animal).permit(:title, :body, :photo)
   end
 end

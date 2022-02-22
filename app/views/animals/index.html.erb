@@ -1,3 +1,11 @@
 <h1>Animals#index</h1>
 <h2>This page will show all animals available for booking!</h2>
 <p>Find me in app/views/animals/index.html.erb</p>
+
+
+<%= cl_image_tag("THE_IMAGE_ID_FROM_LIBRARY",
+      width: 400, height: 300, crop: :fill) %>
+
+<!-- for face detection -->
+<%= cl_image_tag("IMAGE_WITH_FACE_ID",
+      width: 150, height: 150, crop: :thumb, gravity: :face) %>
