@@ -1,6 +1,5 @@
-<h1>Bookings#new</h1>
-<h2>The user will see this page when he wants to book one animal. Here the user enters the required user details for booking.</h2>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1>Book <%= @animal.name %>, the <%= @animal.species %></h1>
+<p>When do you want to book our dear <strong><%= @animal.name %></strong>?</p>
 <%= simple_form_for ([@animal, @booking]) do |f| %>
 
   <%= f.input :start_date%>
