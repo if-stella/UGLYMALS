@@ -2,8 +2,10 @@
 <h2>This page will show all animals available for booking!</h2>
 <h6>All available animals:</h6>
 <p>Find me in app/views/animals/index.html.erb</p>
+
 <ul>
 <% @animals.each do |animal| %>
   <li><%= "Name: #{animal.name}, Price: #{animal.price}, Age: #{animal.age}, Species: #{animal.species}" %></li>
 <% end %>
 </ul>
+

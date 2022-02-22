@@ -1,5 +1,7 @@
 class AnimalsController < ApplicationController
+
   before_action :set_animal, only: %i[show]
+
   def index
     @animals = Animal.all
   end
@@ -20,6 +22,6 @@ class AnimalsController < ApplicationController
   end
 
   def animals_params
-    params.require(:animals).permit(:price, :name, :age, :species, :user_id)
+    params.require(:animals).permit(:price, :photo, :name, :age, :species, :user_id)
   end
 end
