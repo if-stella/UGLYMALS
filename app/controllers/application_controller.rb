@@ -1,3 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  # uncomment the following line to activate authentication features
+  # before_action :authenticate_user!
 end
