@@ -1,6 +1,6 @@
 <%= simple_form_for(animal) do |f| %>
   <!-- [...] -->
-  <!-- <%= f.input :photo, as: :file %> -->
+  <%= f.input :photo, as: :file %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :species %>
