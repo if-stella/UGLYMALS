@@ -3,4 +3,10 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def dashboard
+    @user = current_user
+    @my_animals = Animal.where(user: @user)
+    @my_bookings = Booking.where(user: @user)
+  end
 end

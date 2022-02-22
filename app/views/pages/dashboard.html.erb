@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Dashboard</h1>
+  <p><%= @user.email %></p>
+  <div class="card">
+    <h2>My animals</h2>
+    <ul>
+      <% @my_animals.each do |animal| %>
+        <li>
+        <%= animal.name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>My bookings</h2>
+    <ul>
+      <% @my_bookings.each do |booking| %>
+        <li><%= booking.animal.name %> from <%= booking.start_date %> until <%= booking.end_date %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
