@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show]
-  def your_bookings
-    @bookings = Booking.where(user: current_user)
+  before_action :set_booking, only: [:show, :destroy]
+  def index
+    @bookings = policy_scope(Booking).where(user: current_user)
   end
 
   def show
@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
   def new
     @animal = Animal.find(params[:animal_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -17,6 +18,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     @booking.user = current_user
     @booking.animal = @animal
+    authorize @booking
     @booking.save!
     if @booking.save!
       redirect_to booking_path(@booking)
@@ -26,7 +28,6 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to your_bookings_path, notice: "Your booking has been cancelled"
   end
@@ -35,6 +36,7 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def bookings_params
