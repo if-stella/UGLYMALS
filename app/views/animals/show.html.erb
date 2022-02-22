@@ -7,4 +7,7 @@
 
 <%= link_to 'Back to index', animals_path, class: "btn btn-primary" %>
 <%= link_to 'Book', new_animal_booking_path(@animal), class: "btn btn-primary" %>
-<%# <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
+
+<% @animal.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
