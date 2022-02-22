@@ -1,9 +1,8 @@
 class AnimalsController < ApplicationController
-
   before_action :set_animal, only: %i[show]
 
   def index
-    @animals = Animal.all
+    @animals = policy_scope(Animal).all
   end
 
   def show
@@ -11,11 +10,13 @@ class AnimalsController < ApplicationController
 
   def new
     @animal = Animal.new
+    authorize @animal
   end
 
   def create
     @animal = Animal.create(animals_params)
     @animal.user = current_user
+    authorize @animal
     @animal.save
     redirect_to animal_path(@animal)
   end
@@ -24,6 +25,7 @@ class AnimalsController < ApplicationController
 
   def set_animal
     @animal = Animal.find(params[:id])
+    authorize @animal
   end
 
   def animals_params
