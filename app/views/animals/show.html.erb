@@ -1,13 +1,11 @@
-<h1>Animal <%= @animal.name %></h1>
-<h6>This page will show one single animal as a profile page, including a book-button</h6>
-<p>Price: <%= @animal.price.to_i %>€</p>
-<p>Age: <%= @animal.age %></p>
-<p>Species: <%= @animal.species.capitalize %></p>
-<p>Owner: <%= @animal.user.email %></p>
+<%= cl_image_tag @animal.photo.key, height: 300, width: 300, radius: :max, crop: :fill  %>
+
+<h1>Name: <strong><%= @animal.name %></strong></h1>
+<h4>This is our pretty ugly beloved <%= @animal.name %></h4>
+<p><strong>Price per day:</strong> <%= @animal.price.to_i %>€</p>
+<p><strong>Age:</strong> <%= @animal.age %></p>
+<p><strong>Species:</strong> <%= @animal.species.capitalize %></p>
+<p><strong>Owner:</strong> <%= @animal.user.email %></p>
 
 <%= link_to 'Back to index', animals_path, class: "btn btn-primary" %>
 <%= link_to 'Book', new_animal_booking_path(@animal), class: "btn btn-primary" %>
-
-<% @animal.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>

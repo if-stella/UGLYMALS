@@ -6,6 +6,9 @@
 <ul>
 <% @animals.each do |animal| %>
   <li>
+    <% if animal.photo.key %>
+      <%= cl_image_tag animal.photo.key, height: 64, width: 64, radius: :max, crop: :fill  %>
+    <% end %>
     <%= "Name: #{animal.name}, Price: #{animal.price}, Age: #{animal.age}, Species: #{animal.species}" %>
     <%= link_to 'Show', animal_path(animal) %>
   </li>
