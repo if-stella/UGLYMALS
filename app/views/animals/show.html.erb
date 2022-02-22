@@ -1,3 +1,10 @@
-<h1>Animals#show</h1>
-<h2>This page will show one single animal as a profile page, including a book-button</h2>
-<p>Find me in app/views/animals/show.html.erb</p>
+<h1>Animal <%= @animal.name %></h1>
+<h6>This page will show one single animal as a profile page, including a book-button</h6>
+<p>Price: <%= @animal.price.to_i %>€</p>
+<p>Age: <%= @animal.age %></p>
+<p>Species: <%= @animal.species.capitalize %></p>
+<p>Owner: <%= @animal.user.email %></p>
+
+<%= link_to 'Back to index', animals_path, class: "btn btn-primary" %>
+<%= link_to 'Book', new_animal_booking_path(@animal), class: "btn btn-primary" %>
+<%# <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
