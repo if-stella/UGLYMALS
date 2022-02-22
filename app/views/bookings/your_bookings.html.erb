@@ -1,0 +1,8 @@
+<h1>All your bookings</h1>
+<ul>
+  <% @bookings.each do |booking| %>
+  <li>
+    <%= booking.user.email %> with <%= booking.animal.name %>
+  </li>
+  <% end %>
+</ul>

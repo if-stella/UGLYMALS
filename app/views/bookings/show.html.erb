@@ -2,3 +2,5 @@
 <p>Starting on: <%= @booking.start_date %></p>
 <p>Ending on: <%= @booking.end_date %></p>
 <p>Your Uglymal: <%= @booking.animal.name %> is a <%= @booking.animal.species %> and <%= @booking.animal.age %> years old.</p>
+<%= link_to 'Go to all animals', animals_path, class: "btn btn-primary" %>
+<%= link_to 'Go to all your bookings', your_bookings_path, class: "btn btn-primary" %>

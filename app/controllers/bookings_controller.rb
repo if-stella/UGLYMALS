@@ -1,5 +1,8 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
+  def your_bookings
+    @bookings = Booking.where(user: current_user)
+  end
 
   def show
   end
