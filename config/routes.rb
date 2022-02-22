@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :animals, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:show, :index]
+  resources :bookings, only: [:show]
+  get "/your_bookings", to: "bookings#your_bookings", as: :your_bookings
 end
