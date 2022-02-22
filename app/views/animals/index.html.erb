@@ -5,7 +5,10 @@
 
 <ul>
 <% @animals.each do |animal| %>
-  <li><%= "Name: #{animal.name}, Price: #{animal.price}, Age: #{animal.age}, Species: #{animal.species}" %></li>
+  <li>
+    <%= "Name: #{animal.name}, Price: #{animal.price}, Age: #{animal.age}, Species: #{animal.species}" %>
+    <%= link_to 'Show', animal_path(animal) %>
+  </li>
 <% end %>
 </ul>
 <%= link_to 'Back to Home', root_path %>
