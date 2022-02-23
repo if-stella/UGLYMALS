@@ -19,7 +19,12 @@ names = [
 ]
 
 names.each do |name|
-  user = User.create(email: "#{name[0]}@#{name[1]}.com", password: "123456")
+  user = User.create(
+    email: "#{name[0]}@#{name[1]}.com",
+    password: "123456",
+    first_name: name[0],
+    last_name: name[1]
+  )
   file = File.open(Rails.root.join("app/assets/images/seed/user_#{name[0]}.jpg"))
   user.photo.attach(io: file, filename: "user_#{name[0]}.png", content_type: 'image/png')
   user.save
