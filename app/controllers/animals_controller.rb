@@ -1,10 +1,11 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: %i[show your_animal]
+
+  before_action :set_animal, only: %i[show your_animal destroy]
 
   def index
     @animals = policy_scope(Animal).all
   end
-  
+
   def your_animal
   end
 
@@ -22,6 +23,11 @@ class AnimalsController < ApplicationController
     authorize @animal
     @animal.save
     redirect_to animal_path(@animal)
+  end
+
+  def destroy
+    @animal.destroy
+    redirect_to dashboard_path, notice: "Your animal has been deleted"
   end
 
   private

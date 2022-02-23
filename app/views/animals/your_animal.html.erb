@@ -9,4 +9,6 @@
 <% else %>
   <%= @animal.name %><p> does not have any bookings:( </p>
 <% end %>
+<%= link_to "Delete Animal", animal_path(@animal), confirm: "Are you sure you want to delete your animal?", method: :delete %>
+
 <%= link_to "Back to your dashboard", dashboard_path %>
