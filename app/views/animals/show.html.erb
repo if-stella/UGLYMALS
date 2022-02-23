@@ -1,5 +1,6 @@
-<%= cl_image_tag @animal.photo.key, height: 300, width: 300, radius: :max, crop: :fill  %>
-
+<% if @animal.photo.key %>
+  <%= cl_image_tag @animal.photo.key, height: 300, width: 300, radius: :max, crop: :fill  %>
+<% end %>
 <h1>Name: <strong><%= @animal.name %></strong></h1>
 <h4>This is our pretty ugly beloved <%= @animal.name %></h4>
 <p><strong>Price per day:</strong> <%= @animal.price.to_i %>€</p>
