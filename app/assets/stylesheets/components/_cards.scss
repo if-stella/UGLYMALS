@@ -1,0 +1,19 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.cta_full_width a {
+  text-decoration:none;
+  color: white;
+  background-color: #13A492;
+  padding: 16px 40px;
+  border-radius: 8px;
+  margin: 16px 0px;
+}
+
+.card {
+  padding: 16px;
+  text-align:left;
+}

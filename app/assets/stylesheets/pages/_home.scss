@@ -2,6 +2,32 @@
 
 
 body {
-  background-color:aqua;
+  background-image: url("https://images.unsplash.com/photo-1595114720921-5a56692ed4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80
+  ");
+  background-size: cover;
+  text-align:center;
 }
-// https://images.unsplash.com/photo-1595114720921-5a56692ed4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80
+
+h1 {
+  padding-top: 80px;
+  font-size: 80px;
+  color:white;
+}
+
+.cta a {
+  text-decoration:none;
+  color: white;
+  background-color: #13A492;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.cta a:hover {
+  background-color: #01524a;
+}
+
+h2 {
+  font-size: 32px;
+  color:white;
+  padding-bottom: 40px;
+}
