@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgba(243, 251, 250, 0.95);
+  align-items: center;
+  padding: 16px 24px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +10,24 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
+}
+.navbar-lewagon .login-container button {
+  float: right;
+  padding: 8px 16px;
+  margin: 0px 198px;
+  background: #13A492;
+  font-size: 17px;
+  position: static;
+  border: none;
+  border-radius: 8px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar-lewagon .login-container button:hover {
+  background: #ccc;
 }
