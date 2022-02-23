@@ -6,6 +6,10 @@ class AnimalPolicy < ApplicationPolicy
     end
   end
 
+  def your_animal?
+    true
+  end
+
   def show?
     true
   end

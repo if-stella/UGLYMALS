@@ -6,7 +6,7 @@
     <ul>
       <% @my_animals.each do |animal| %>
         <li>
-        <%= animal.name %>
+        <%= link_to animal.name, your_animal_path(animal) %>
         </li>
       <% end %>
     </ul>
