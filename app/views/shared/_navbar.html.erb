@@ -27,7 +27,9 @@
           </li>
         <% else %>
           <li class="nav-item">
+            <div class="btn">
             <%= link_to "Login", new_user_session_path, class: "login-container button" %>
+            </div>
           </li>
         <% end %>
       </ul>
