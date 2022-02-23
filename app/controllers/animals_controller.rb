@@ -1,8 +1,8 @@
 class AnimalsController < ApplicationController
 
-  before_action :set_animal, only: %i[show your_animal destroy]
+  before_action :set_animal, only: %i[show your_animal edit update destroy]
   skip_before_action :authenticate_user!, only: %i[show index]
-  
+
   def index
     @animals = policy_scope(Animal).all
   end
@@ -24,6 +24,18 @@ class AnimalsController < ApplicationController
     authorize @animal
     @animal.save
     redirect_to animal_path(@animal)
+  end
+
+  def update
+    if @animal.update(animals_params)
+      flash[:notice] = 'animal was updated.'
+      redirect_to animal_path(@animal)
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
   end
 
   def destroy
