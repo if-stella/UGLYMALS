@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:show, :destroy]
+
   get "/your_animal/:id", to: "animals#your_animal", as: :your_animal
+
   get "/your_bookings", to: "bookings#index", as: :your_bookings
 end
