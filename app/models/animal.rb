@@ -1,6 +1,6 @@
 class Animal < ApplicationRecord
   belongs_to :user
-  has_one :booking, dependent: :destroy
+  has_many :booking, dependent: :destroy
   validates :name, :age, :species, presence: true
   validates :age, numericality: { only_integer: true }
   validates :name, length: { minimum: 3 }

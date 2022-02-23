@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "/dashboard", to: "pages#dashboard", as: :dashboard
-  resources :animals, only: [:index, :show, :new, :create] do
+  resources :animals, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:show, :destroy]
-  get "/your_animals", to: "animals#your_animals", as: :your_animals
+
+  get "/your_animal/:id", to: "animals#your_animal", as: :your_animal
+
   get "/your_bookings", to: "bookings#index", as: :your_bookings
 end
