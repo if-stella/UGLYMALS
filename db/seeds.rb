@@ -11,10 +11,23 @@ require "open-uri"
 Animal.destroy_all
 User.destroy_all
 
-User.create(email: "lydia@alles.com", password: "123456")
-User.create(email: "kang@hsieh.com", password: "123456")
-User.create(email: "stella@raab.com", password: "123456")
-User.create(email: "ida@schwarzkopf.com", password: "123456")
+names = [
+  %w[lydia alles],
+  %w[kang hsieh],
+  %w[stella raab],
+  %w[ida schwarzkopf]
+]
+
+names.each do |name|
+  user = User.create(email: "#{name[0]}@#{name[1]}.com", password: "123456")
+  file = File.open(Rails.root.join("app/assets/images/seed/user_#{name[0]}.jpg"))
+  user.photo.attach(io: file, filename: "user_#{name[0]}.png", content_type: 'image/png')
+  user.save
+end
+# User.create(email: "lydia@alles.com", password: "123456")
+# User.create(email: "kang@hsieh.com", password: "123456")
+# User.create(email: "stella@raab.com", password: "123456")
+# User.create(email: "ida@schwarzkopf.com", password: "123456")
 
 counter = 0
 10.times do
