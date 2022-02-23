@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require "open-uri"
 
 Animal.destroy_all
 User.destroy_all
@@ -15,9 +16,18 @@ User.create(email: "kang@hsieh.com", password: "123456")
 User.create(email: "stella@raab.com", password: "123456")
 User.create(email: "ida@schwarzkopf.com", password: "123456")
 
-15.times do
-  animal = Animal.create(name: Faker::Name.name, age: rand(0..20), price: rand(10..40), species: Faker::Creature::Animal.name)
+counter = 0
+10.times do
+  counter += 1
+  # make sure that images for seed animals are correctly named in app/assets/images/seed
+  file = File.open(Rails.root.join("app/assets/images/seed/animal_#{counter}.jpg"))
+  animal = Animal.create(
+    name: Faker::Name.name,
+    age: rand(0..20), price: rand(10..40),
+    species: Faker::Creature::Animal.name,
+    description: 'Lorem ipsum'
+  )
   animal.user = User.all.sample
+  animal.photo.attach(io: file, filename: "animal_#{counter}.png", content_type: 'image/png')
   animal.save
 end
-# puts "created animals"
