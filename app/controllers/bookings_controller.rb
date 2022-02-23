@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy]
-  
+
   def index
     @bookings = policy_scope(Booking).where(user: current_user)
   end
@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to your_bookings_path, notice: "Your booking has been cancelled"
+    redirect_to your_dashboard_path, notice: "Your booking has been cancelled"
   end
 
   private
