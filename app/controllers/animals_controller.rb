@@ -1,8 +1,12 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: %i[show destroy]
+
+  before_action :set_animal, only: %i[show your_animal]
 
   def index
     @animals = policy_scope(Animal).all
+  end
+
+  def your_animal
   end
 
   def show

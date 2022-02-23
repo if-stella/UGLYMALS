@@ -1,0 +1,12 @@
+<h1><%= @animal.name %></h1>
+
+<% if @animal.bookings.first %>
+  <% @animal.bookings.each do |b| %>
+    <p> is booked with: </p><%= b.user.email %>
+    <p> from: </p><%= b.start_date %>
+    <p> until: </p><%= b.end_date %>
+  <% end %>
+<% else %>
+  <%= @animal.name %><p> does not have any bookings:( </p>
+<% end %>
+<%= link_to "Back to your dashboard", dashboard_path %>

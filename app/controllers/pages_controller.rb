@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
-    @my_animals = Animal.where(user: @user)
-    @my_bookings = Booking.where(user: @user)
+    @my_animals = policy_scope(Animal).where(user: @user)
+    @my_bookings = policy_scope(Booking).where(user: @user)
   end
 end
