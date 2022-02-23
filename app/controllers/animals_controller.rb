@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: %i[show]
+  before_action :set_animal, only: %i[show destroy]
 
   def index
     @animals = policy_scope(Animal).all
@@ -19,6 +19,11 @@ class AnimalsController < ApplicationController
     authorize @animal
     @animal.save
     redirect_to animal_path(@animal)
+  end
+
+  def destroy
+    @booking.destroy
+    redirect_to dashboard_path, notice: "Your booking has been cancelled"
   end
 
   private
