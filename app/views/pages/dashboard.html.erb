@@ -3,22 +3,22 @@
   <p><%= @user.email %></p>
   <div class="card">
     <h2>My animals</h2>
-    <ul>
+    <ul class="m-3">
       <% @my_animals.each do |animal| %>
-        <li>
-        <%= link_to animal.name, your_animal_path(animal) %>
-        </li>
+        <li><%= link_to animal.name, your_animal_path(animal) %></li>
       <% end %>
     </ul>
     <%= link_to "Create a new animal", new_animal_path %>
   </div>
   <div class="card">
     <h2>My bookings</h2>
-    <ul>
+    <ul class="m-3">
       <% @my_bookings.each do |booking| %>
-        <li><%= booking.animal.name %> from <%= booking.start_date %> until <%= booking.end_date %><%= link_to "Details", booking_path(booking) %></li>
+        <li><%= booking.animal.name %> from <%= booking.start_date %> until <%= booking.end_date %> - <%= link_to "Details", booking_path(booking) %></li>
       <% end %>
     </ul>
   </div>
-  <%= link_to "see cute UGLYMALS", animals_path%>
+  <div class="p-3 btn-primary all-animals-link bg-dark">
+    <%= link_to "see cute UGLYMALS", animals_path%>
+  </div>
 </div>
