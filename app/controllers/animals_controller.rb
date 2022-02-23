@@ -1,7 +1,8 @@
 class AnimalsController < ApplicationController
 
   before_action :set_animal, only: %i[show your_animal destroy]
-
+  skip_before_action :authenticate_user!, only: %i[show index]
+  
   def index
     @animals = policy_scope(Animal).all
   end
