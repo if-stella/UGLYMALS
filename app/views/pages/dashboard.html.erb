@@ -16,7 +16,7 @@
     <h2>My bookings</h2>
     <ul>
       <% @my_bookings.each do |booking| %>
-        <li><%= booking.animal.name %> from <%= booking.start_date %> until <%= booking.end_date %></li>
+        <li><%= booking.animal.name %> from <%= booking.start_date %> until <%= booking.end_date %><%= link_to "Details", booking_path(booking) %></li>
       <% end %>
     </ul>
   </div>
