@@ -12,24 +12,22 @@ Animal.destroy_all
 User.destroy_all
 
 User.create(email: "lydia@alles.com", password: "123456")
-kang = User.create(email: "kang@hsieh.com", password: "123456")
+User.create(email: "kang@hsieh.com", password: "123456")
 User.create(email: "stella@raab.com", password: "123456")
 User.create(email: "ida@schwarzkopf.com", password: "123456")
 
-# 15.times do
-#   animal = Animal.create(name: Faker::Name.name, age: rand(0..20), price: rand(10..40), species: Faker::Creature::Animal.name)
-#   animal.user = User.all.sample
-#   animal.save
-# end
-
-file = URI.open('https://i.natgeofe.com/n/8271db90-5c35-46bc-9429-588a9529e44a/raccoon_thumb_3x4.JPG')
-animal = Animal.create(
-  name: Faker::Name.name,
-  age: rand(0..20), price: rand(10..40),
-  species: Faker::Creature::Animal.name,
-  description: 'Lorem ipsum'
-)
-animal.user = kang
-animal.photo.attach(io: file, filename: 'possum.png', content_type: 'image/png')
-animal.save
-# puts "created animals"
+counter = 0
+10.times do
+  counter += 1
+  # make sure that images for seed animals are correctly named in app/assets/images/seed
+  file = File.open(Rails.root.join("app/assets/images/seed/animal_#{counter}.jpg"))
+  animal = Animal.create(
+    name: Faker::Name.name,
+    age: rand(0..20), price: rand(10..40),
+    species: Faker::Creature::Animal.name,
+    description: 'Lorem ipsum'
+  )
+  animal.user = User.all.sample
+  animal.photo.attach(io: file, filename: "animal_#{counter}.png", content_type: 'image/png')
+  animal.save
+end
