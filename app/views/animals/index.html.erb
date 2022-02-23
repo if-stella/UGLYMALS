@@ -1,17 +1,20 @@
-<h1>Animals#index</h1>
-<h2>This page will show all animals available for booking!</h2>
-<h6>All available animals:</h6>
-<p>Find me in app/views/animals/index.html.erb</p>
+<h1>The <strong>Ugly</strong>mals</h1>
+<h2>All these animals are excited for a nice evening out</h2>
+<div class="cards">
+  <% @animals.each do |animal| %>
+    <div class="card">
+      <% if animal.photo.key %>
+        <%= cl_image_tag animal.photo.key, height: 64, width: 64, radius: :max, crop: :fill %>
+      <% end %>
+      <p><strong>Name: </strong><%= "#{animal.name}" %>, the <%= "#{animal.species}" %> </p>
+      <p><strong>Age: </strong><%= "#{animal.age}" %> years</p>
+      <p><strong>Price: </strong><%= "#{animal.price}" %>€</p>
 
-<ul>
-<% @animals.each do |animal| %>
-  <li>
-    <% if animal.photo.key %>
-      <%= cl_image_tag animal.photo.key, height: 64, width: 64, radius: :max, crop: :fill  %>
-    <% end %>
-    <%= "Name: #{animal.name}, Price: #{animal.price}, Age: #{animal.age}, Species: #{animal.species}" %>
-    <%= link_to 'Show', animal_path(animal) %>
-  </li>
-<% end %>
-</ul>
-<%= link_to 'Back to Home', root_path %>
+    <div class="cta_full_width"><%= link_to 'Show', animal_path(animal) %></div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<!-- <div class="cta"><%= link_to 'Back to Home', root_path %></div> -->

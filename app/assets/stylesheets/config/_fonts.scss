@@ -5,6 +5,25 @@
 $body-font: "Sora", "Helvetica", "sans-serif";
 $headers-font: "Sora", "Helvetica", "sans-serif";
 
+h1 {
+  font-size: 80px;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight:600;
+}
+
+p {
+  font-size: 16px;
+  font-weight:400;
+}
+
+a {
+  font-size: 16px;
+  font-weight:600;
+}
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
