@@ -1,4 +1,5 @@
 <%= simple_form_for :animal, url: animals_path, method: :get do |f| %>
+      <%= f.input :name %>
       <%= f.input :species, collection: @species.uniq %>
       <%= f.input :age1, collection: @age %>
       <%= f.input :age2, collection: @age %>
