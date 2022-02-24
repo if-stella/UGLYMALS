@@ -3,14 +3,23 @@
 <div class="cards">
   <% @animals.each do |animal| %>
     <div class="card">
-      <% if animal.photo.key %>
-        <%= cl_image_tag animal.photo.key, height: 64, width: 64, radius: :max, crop: :fill %>
-      <% end %>
-      <p><strong>Name: </strong><%= "#{animal.name}" %>, the <%= "#{animal.species}" %> </p>
-      <p><strong>Age: </strong><%= "#{animal.age}" %> years</p>
-      <p><strong>Price: </strong><%= "#{animal.price}" %>€</p>
 
-    <div class="cta_full_width"><%= link_to 'Show', animal_path(animal) %></div>
+      <div class="image">
+       <% if animal.photo.key %>
+          <%= cl_image_tag animal.photo.key, height: "100%", width: "100%" %>
+        <% end %>
+      </div>
+
+      <div class="info">
+        <div id="list-details">
+          <h4><strong><%= "#{animal.name}" %></strong></h4>
+          <p><strong>Species: </strong><%= "#{animal.species.capitalize}" %></p>
+          <p><strong>Age: </strong><%= "#{animal.age}" %> years</p>
+          <p><strong>Price: </strong><%= "#{animal.price.to_i}" %>€ (per day)</p>
+        </div>
+        <div class="cta_full_width"><%= link_to 'Show', animal_path(animal) %></div>
+      </div>
+
     </div>
   <% end %>
 </div>

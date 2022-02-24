@@ -1,19 +1,43 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 32px;
+}
+
+.card {
+  border-radius:20px;
+  border:none;
 }
 
 .cta_full_width a {
   text-decoration:none;
-  color: white;
   background-color: #13A492;
-  padding: 16px 40px;
+  color: hsl(0, 0%, 95%) ;
+  width:100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align:center;
   border-radius: 8px;
-  margin: 16px 0px;
 }
 
-.card {
-  padding: 16px;
+.cta_full_width a:hover {
+   background-color: #0d6a5f;
+   color: hsl(0, 0%, 100%) ;
+   }
+
+.image {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+
+  img {
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+}
+
+.info {
   text-align:left;
+  padding: 24px;
 }
