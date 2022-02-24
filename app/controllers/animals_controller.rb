@@ -5,6 +5,17 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = policy_scope(Animal).all
+    @species = []
+    Animal.all.each do |animal|
+      @species << animal.species
+    end
+
+    if params[:animal].present? && params[:animal][:species].present?
+      specie = params[:animal][:species]
+      @animals = policy_scope(Animal).where(species: specie)
+    else
+      @animals = policy_scope(Animal).all
+    end
   end
 
   def your_animal
@@ -14,6 +25,10 @@ class AnimalsController < ApplicationController
   end
 
   def new
+    @species = []
+    Animal.all.each do |animal|
+      @species << animal.species
+    end
     @animal = Animal.new
     authorize @animal
   end

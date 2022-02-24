@@ -4,7 +4,7 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :species %>
-  <%= f.text_field :species %>
+  <%= f.input :species, collection: @species%>
   <%= f.label :age %>
   <%= f.number_field :age %>
   <%= f.label :price %>
