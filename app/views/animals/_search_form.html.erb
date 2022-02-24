@@ -1,4 +1,7 @@
 <%= simple_form_for :animal, url: animals_path, method: :get do |f| %>
-      <%= f.input :species, collection: @species %>
+      <%= f.input :name %>
+      <%= f.input :species, collection: @species.uniq %>
+      <%= f.input :age1, collection: @age %>
+      <%= f.input :age2, collection: @age %>
       <%= f.submit "Search", class: "btn btn-primary" %>
-    <% end %>
+<% end %>

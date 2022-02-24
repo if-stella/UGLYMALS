@@ -6,13 +6,35 @@ class AnimalsController < ApplicationController
   def index
     @animals = policy_scope(Animal).all
     @species = []
+    @age = (0..20).to_a
     Animal.all.each do |animal|
       @species << animal.species
     end
-
-    if params[:animal].present? && params[:animal][:species].present?
+    if params[:animal].present? && params[:animal][:species].present? && params[:animal][:age1].present? && params[:animal][:age2].present? && params[:animal][:name].present?
+      specie = params[:animal][:species]
+      age1 = params[:animal][:age1]
+      age2 = params[:animal][:age2]
+      name = params[:animal][:name]
+      @animals = policy_scope(Animal).where(species: specie, age: age1..age2, name: name)
+    elsif params[:animal].present? && params[:animal][:species].present? && params[:animal][:age1].present? && params[:animal][:age2].present?
+      specie = params[:animal][:species]
+      age1 = params[:animal][:age1]
+      age2 = params[:animal][:age2]
+      @animals = policy_scope(Animal).where(species: specie, age: age1..age2)
+    elsif params[:animal].present? && params[:animal][:species].present?
       specie = params[:animal][:species]
       @animals = policy_scope(Animal).where(species: specie)
+    elsif params[:animal].present? && params[:animal][:age1].present? && params[:animal][:age2].present? && params[:animal][:name].present?
+      age1 = params[:animal][:age1]
+      age2 = params[:animal][:age2]
+      @animals = policy_scope(Animal).where(age: age1..age2, name: name)
+    elsif params[:animal].present? && params[:animal][:age1].present? && params[:animal][:age2].present?
+      age1 = params[:animal][:age1]
+      age2 = params[:animal][:age2]
+      @animals = policy_scope(Animal).where(age: age1..age2)
+    elsif params[:animal].present? && params[:animal][:name].present?
+      name = params[:animal][:name]
+      @animals = policy_scope(Animal).where(name: name)
     else
       @animals = policy_scope(Animal).all
     end
@@ -22,6 +44,7 @@ class AnimalsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -38,12 +61,12 @@ class AnimalsController < ApplicationController
     @animal.user = current_user
     authorize @animal
     @animal.save
-    redirect_to animal_path(@animal)
+    redirect_to animal_path(@animal), notice: "Your animal profile has been created"
   end
 
   def update
     if @animal.update(animals_params)
-      flash[:notice] = 'animal was updated.'
+      flash[:notice] = 'Your animal profile was updated.'
       redirect_to animal_path(@animal)
     else
       render 'edit'
@@ -55,7 +78,7 @@ class AnimalsController < ApplicationController
 
   def destroy
     @animal.destroy
-    redirect_to dashboard_path, notice: "Your animal has been deleted"
+    redirect_to dashboard_path, notice: "Your animal profile has been deleted"
   end
 
   private

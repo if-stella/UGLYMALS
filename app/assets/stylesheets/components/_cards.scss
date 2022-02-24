@@ -9,6 +9,25 @@
   border:none;
 }
 
+.card-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 40px;
+}
+
+.card-title h2 {
+  color: black;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  margin: 40px;
+}
+
 .cta_full_width a {
   text-decoration:none;
   background-color: #13A492;

@@ -19,10 +19,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     @booking.user = current_user
     @booking.animal = @animal
+    @booking.total_price = total_price(@booking, @animal)
     authorize @booking
     @booking.save!
     if @booking.save!
-      redirect_to booking_path(@booking)
+      redirect_to booking_path(@booking), notice: "Your booking has been confirmed"
     else
       render :new
     end
@@ -34,6 +35,12 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def total_price(booking, animal)
+    days = booking.end_date - booking.start_date
+    price_per_day = animal.price
+    return (days * price_per_day).to_i
+  end
 
   def set_booking
     @booking = Booking.find(params[:id])

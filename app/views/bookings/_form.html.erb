@@ -1,7 +1,7 @@
-<%= simple_form_for(booking) do |f| %>
+<%= simple_form_for ([@animal, @booking]) do |f| %>
 
   <%= f.input :start_date%>
   <%= f.input :end_date%>
 
-  <!-- [...] -->
+  <%= f.submit "Book", class: "btn btn-primary" %>
 <% end %>
