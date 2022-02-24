@@ -1,8 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgba(243, 251, 250, 0.95);
+  background: rgba(243, 251, 250, 0.9);
   align-items: center;
   padding: 4px 24px;
+  width: 100%;
+  z-index: 6;
+  position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+.sticky + .content {
+  padding-top: 72px;
 }
 
 .navbar-lewagon .navbar-collapse {
