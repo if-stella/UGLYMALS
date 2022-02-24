@@ -1,14 +1,9 @@
 <div class="container", id="show-animal">
-  <div class="container-info">
+  <div class="card">
     <%= render "show", animal: @animal %>
-  </div>
-
-  <div class="container-options">
-    <%= link_to 'Back to index', animals_path, class: "btn btn-primary" %>
-    <%# <%= link_to 'Book', new_animal_booking_path(@animal), class: "btn btn-primary" %>
-  </div>
-
-  <div class="container-book">
     <%= render "bookings/form", animal: @animal, booking: @booking %>
+    <br>
   </div>
+  <%= link_to 'Back to index', animals_path, class: "btn btn-primary" %>
+  <%# <%= link_to 'Book', new_animal_booking_path(@animal), class: "btn btn-primary" %>
 </div>
