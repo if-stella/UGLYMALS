@@ -40,7 +40,7 @@ counter = 0
   # make sure that images for seed animals are correctly named in app/assets/images/seed
   file = File.open(Rails.root.join("app/assets/images/seed/animal_#{counter}.jpg"))
   animal = Animal.create(
-    name: Faker::Name.name,
+    name: Faker::Name.first_name,
     age: rand(0..20), price: rand(10..40),
     species: Faker::Creature::Animal.name,
     description: 'Lorem ipsum'
