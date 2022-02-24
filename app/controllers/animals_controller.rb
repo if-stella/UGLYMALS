@@ -6,11 +6,16 @@ class AnimalsController < ApplicationController
   def index
     @animals = policy_scope(Animal).all
     @species = []
+    @age = (0..20).to_a
     Animal.all.each do |animal|
       @species << animal.species
     end
-
-    if params[:animal].present? && params[:animal][:species].present?
+    if params[:animal].present? && params[:animal][:species].present? && params[:animal][:age1].present? && params[:animal][:age2].present?
+      specie = params[:animal][:species]
+      age1 = params[:animal][:age1]
+      age2 = params[:animal][:age2]
+      @animals = policy_scope(Animal).where(species: specie, age: age1..age2)
+    elsif params[:animal].present? && params[:animal][:species].present?
       specie = params[:animal][:species]
       @animals = policy_scope(Animal).where(species: specie)
     else
