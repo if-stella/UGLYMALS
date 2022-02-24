@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.save!
     if @booking.save!
-      redirect_to booking_path(@booking)
+      redirect_to booking_path(@booking), notice: "Your booking has been confirmed"
     else
       render :new
     end

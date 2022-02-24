@@ -61,12 +61,12 @@ class AnimalsController < ApplicationController
     @animal.user = current_user
     authorize @animal
     @animal.save
-    redirect_to animal_path(@animal)
+    redirect_to animal_path(@animal), notice: "Your animal profile has been created"
   end
 
   def update
     if @animal.update(animals_params)
-      flash[:notice] = 'animal was updated.'
+      flash[:notice] = 'Your animal profile was updated.'
       redirect_to animal_path(@animal)
     else
       render 'edit'
@@ -78,7 +78,7 @@ class AnimalsController < ApplicationController
 
   def destroy
     @animal.destroy
-    redirect_to dashboard_path, notice: "Your animal has been deleted"
+    redirect_to dashboard_path, notice: "Your animal profile has been deleted"
   end
 
   private
