@@ -1,16 +1,9 @@
-<div class="container">
-  <div class="container">
-    <%= render "animals/show", animal: @animal %>
+<div class="container", id="show-animal">
+  <div class="container-info">
   </div>
-  <div class="container">
+  <div class="container-options">
     <h1>Book <%= @animal.name %>, the <%= @animal.species %></h1>
     <p>When do you want to book our dear <strong><%= @animal.name %></strong>?</p>
-    <%= simple_form_for ([@animal, @booking]) do |f| %>
+    <%= render "form", animal: @animal, booking: @booking %>
 
-      <%= f.input :start_date%>
-      <%= f.input :end_date%>
-
-      <%= f.submit %>
-    <% end %>
-  </div>
 </div>
