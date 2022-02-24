@@ -1,23 +1,58 @@
 <div class="container">
-  <h1>Dashboard</h1>
-  <p><%= @user.email %></p>
-  <div class="card">
-    <h2>My animals</h2>
-    <ul class="m-3">
-      <% @my_animals.each do |animal| %>
-        <li><%= link_to animal.name, your_animal_path(animal) %></li>
-      <% end %>
-    </ul>
-    <%= link_to "Create a new animal", new_animal_path %>
-  </div>
-  <div class="card">
-    <h2>My bookings</h2>
-    <ul class="m-3">
-      <% @my_bookings.each do |booking| %>
-        <li><%= booking.animal.name %> from <%= booking.start_date %> until <%= booking.end_date %> - <%= link_to "Details", booking_path(booking) %></li>
-      <% end %>
-    </ul>
-  </div>
+  <h1><%= @user.first_name.capitalize %>s Dashboard</h1>
+    <div class="container">
+      <h2>My animals</h2>
+      <div class="cards">
+        <% @my_animals.each do |animal| %>
+          <div class="card">
+
+            <div class="image">
+            <% if animal.photo.key %>
+                <%= cl_image_tag animal.photo.key, height: "100%", width: "100%" %>
+              <% end %>
+            </div>
+
+            <div class="info">
+              <div id="list-details">
+                <h4><strong><%= "#{animal.name}" %></strong></h4>
+                <p><strong>Species: </strong><%= "#{animal.species.capitalize}" %></p>
+                <p><strong>Age: </strong><%= "#{animal.age}" %> years</p>
+                <p><strong>Price: </strong><%= "#{animal.price.to_i}" %>€ (per day)</p>
+              </div>
+              <div class="cta_full_width"><%= link_to animal.name, your_animal_path(animal) %></div>
+            </div>
+
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "Create a new animal", new_animal_path, class: "btn btn-primary"%>
+    </div>
+    <div class="container">
+      <h2>My bookings</h2>
+      <div class="cards">
+        <% @my_bookings.each do |booking| %>
+          <div class="card">
+            <div class="image">
+            <% if booking.animal.photo.key %>
+                <%= cl_image_tag booking.animal.photo.key, height: "100%", width: "100%" %>
+              <% end %>
+            </div>
+            <div class="info">
+              <div class="list-details">
+                <h4><strong><%= booking.animal.name %></strong></h4>
+                <p>from <%= booking.start_date %></p>
+                <p>until <%= booking.end_date %></p>
+              </div>
+              <div class="cta_full_width">
+                <%= link_to "Details", booking_path(booking) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+
+    </div>
   <div class="p-3 btn-primary all-animals-link bg-dark">
     <%= link_to "see cute UGLYMALS", animals_path%>
   </div>
