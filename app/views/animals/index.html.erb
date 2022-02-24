@@ -1,6 +1,7 @@
 <h1>The <strong>Ugly</strong>mals</h1>
 <h2>All these animals are excited for a nice evening out</h2>
 <div class="cards">
+  <%= render "search_form", animal: @animal %>
   <% @animals.each do |animal| %>
     <div class="card">
       <% if animal.photo.key %>
