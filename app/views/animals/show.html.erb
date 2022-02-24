@@ -1,12 +1,11 @@
-<% if @animal.photo.key %>
-  <%= cl_image_tag @animal.photo.key, height: 300, width: 300, radius: :max, crop: :fill  %>
-<% end %>
-<h1>Name: <strong><%= @animal.name %></strong></h1>
-<h4>This is our pretty ugly beloved <%= @animal.name %></h4>
-<p><strong>Price per day:</strong> <%= @animal.price.to_i %>€</p>
-<p><strong>Age:</strong> <%= @animal.age %></p>
-<p><strong>Species:</strong> <%= @animal.species.capitalize %></p>
-<p><strong>Owner:</strong> <%= @animal.user.email %></p>
+<div class="container">
+  <div class="container-info">
+    <%= render "show", animal: @animal %>
+  </div>
 
-<%= link_to 'Back to index', animals_path, class: "btn btn-primary" %>
-<%= link_to 'Book', new_animal_booking_path(@animal), class: "btn btn-primary" %>
+  <div class="container-options">
+    <%= link_to 'Back to index', animals_path, class: "btn btn-primary" %>
+    <%= link_to 'Book', new_animal_booking_path(@animal), class: "btn btn-primary" %>
+  </div>
+
+</div>
