@@ -2,6 +2,7 @@
 <p>Starting on: <%= @booking.start_date %></p>
 <p>Ending on: <%= @booking.end_date %></p>
 <p>Your Uglymal: <%= @booking.animal.name %> is a <%= @booking.animal.species %> and <%= @booking.animal.age %> years old.</p>
+<p>Total price: <%= @booking.total_price.to_i %>€</p>
 <%= link_to 'Go to all animals', animals_path, class: "btn btn-primary" %>
 <%= link_to 'Go to all your bookings', your_bookings_path, class: "btn btn-primary" %>
 <%= link_to "Cancel Booking", booking_path(@booking), class: "btn btn-primary", confirm: "Are you sure you want to cancel your booking?", method: :delete %>
