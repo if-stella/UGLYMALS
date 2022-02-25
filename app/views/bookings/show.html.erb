@@ -1,5 +1,13 @@
 <h1>Booking for <%= @booking.user.email %></h1>
-<p>Status: <%= @booking.valid %></p>
+<div class="p-3">
+  <% if @booking.status == 1 %>
+    <div>Status: <%= @booking.valid %> <i class="fa fa-solid fa-spinner"></i></div>
+  <% elsif @booking.status == 0 %>
+    <div>Status: <%= @booking.valid %> <i class="fa fa-solid fa-thumbs-down"></i></div>
+  <% else %>
+    <div>Status: <%= @booking.valid %> <i class="fa fa-solid fa-check-double"></i></div>
+  <% end %>
+</div>
 <p>Starting on: <%= @booking.start_date.strftime("%d.%m.%Y") %></p>
 <p>Ending on: <%= @booking.end_date.strftime("%d.%m.%Y") %></p>
 <p>Your Uglymal: <%= @booking.animal.name %> is a <%= @booking.animal.species %> and <%= @booking.animal.age %> years old.</p>
