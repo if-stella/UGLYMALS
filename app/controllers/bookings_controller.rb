@@ -23,11 +23,11 @@ class BookingsController < ApplicationController
     @booking.total_price = total_price(@booking, @animal)
     @booking.status = 1
     authorize @booking
-    @booking.save!
-    if @booking.save!
-      redirect_to booking_path(@booking), notice: "Your booking is now pending, wait for #{@booking.animal.name}'s owner to confirm it."
-    else
+    if !@booking.valid?
       render :new
+    else
+      @booking.save!
+      redirect_to booking_path(@booking), notice: "Your booking is now pending, wait for #{@booking.animal.name}'s owner to confirm it."
     end
   end
 
