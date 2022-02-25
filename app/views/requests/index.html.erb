@@ -1,21 +1,42 @@
 <div class="container">
   <h1 class="p-3 m-3">Booking requests for you:</h1>
-  <% @requests.each do |request| %>
   <div class="p-4 mt-3 border-bottom ">
-    <h5 class=""><%= request.user.email %> would like to book <%= request.animal.name %> from the <%= request.start_date %> until the <%= request.start_date %></h3>
-    <p class="py-3">Status: <%= request.valid %>
-    <% if request.status == 1 %>
-      <i class="fa fa-solid fa-spinner"></i>
-    <% elsif request.status == 0 %>
-      <i class="fa fa-solid fa-thumbs-down"></i>
-    <% else %>
-      <i class="fa fa-solid fa-check-double"></i>
+    <% if !@confirmed.empty? %>
+      <h4 class="py-5">Confirmed:</h4>
+      <% @confirmed.each do |b| %>
+      <div class="m-3">
+        <p> <%= b.animal.name %> is booked with: <%= b.user.first_name.capitalize %> (<%= b.user.email %>)</p>
+        <p> from: <%= b.start_date %></p>
+        <p> until: <%= b.end_date %></p>
+        <div>Status: <%= b.valid %> <i class="fa fa-solid fa-check-double"></i></div>
+      <% end %>
+    </div>
     <% end %>
-    </p>
-    <div class="cta mt-3 p-0"><%= link_to "Accept Booking", request_path(request, status: 2), method: :put %></div>
-    <div class="cta mt-3 p-0"><%= link_to "Deny Booking", request_path(request, status: 0), method: :put %></div>
+    <% if !@pending.empty? %>
+      <h4 class="py-5">Pending:</h4>
+      <% @pending.each do |b| %>
+      <div class="mb-3">
+        <p> <%= b.animal.name %> is booked with: <%= b.user.first_name.capitalize %> (<%= b.user.email %>)</p>
+        <p> from: <%= b.start_date %></p>
+        <p> until: <%= b.end_date %></p>
+        <div>Status: <%= b.valid %> <i class="fa fa-solid fa-thumbs-down"></i></div>
+        <div class="cta mt-3 p-0"><%= link_to "Accept Booking", request_path(b, status: 2), method: :put %></div>
+        <div class="cta my-1 p-0"><%= link_to "Deny Booking", request_path(b, status: 0), method: :put %></div>
+      <% end %>
+    </div>
+    <% end %>
+    <% if !@denied.empty? %>
+      <h4 class="py-5">Denied:</h4>
+      <% @denied.each do |b| %>
+      <div class="mb-3">
+        <p> <%= b.animal.name %> is booked with: <%= b.user.first_name.capitalize %> (<%= b.user.email %>)</p>
+        <p> from: <%= b.start_date %></p>
+        <p> until: <%= b.end_date %></p>
+      <div>Status: <%= b.valid %> <i class="fa fa-solid fa-spinner"></i></div>
+      <% end %>
+      </div>
+    <% end %>
   </div>
-  <% end %>
   <div class="cta m-5">
     <p><%= link_to "Back to my dashboard", dashboard_path %></p>
   </div>
