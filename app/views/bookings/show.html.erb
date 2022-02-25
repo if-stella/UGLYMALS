@@ -1,7 +1,7 @@
 <h1>Booking for <%= @booking.user.email %></h1>
 <p>Status: <%= @booking.valid %></p>
-<p>Starting on: <%= @booking.start_date %></p>
-<p>Ending on: <%= @booking.end_date %></p>
+<p>Starting on: <%= @booking.start_date.strftime("%d.%m.%Y") %></p>
+<p>Ending on: <%= @booking.end_date.strftime("%d.%m.%Y") %></p>
 <p>Your Uglymal: <%= @booking.animal.name %> is a <%= @booking.animal.species %> and <%= @booking.animal.age %> years old.</p>
 <p>Total price: <%= @booking.total_price.to_i %>€</p>
 <div class="cta">
