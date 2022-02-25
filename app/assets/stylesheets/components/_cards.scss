@@ -2,6 +2,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 32px;
+  padding-bottom: 64px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .card {
@@ -56,6 +59,7 @@ font-size: 24px;
   padding-bottom: 12px;
   text-align:center;
   border-radius: 8px;
+  font-weight:bold;
 }
 
 .cta_full_width a:hover {

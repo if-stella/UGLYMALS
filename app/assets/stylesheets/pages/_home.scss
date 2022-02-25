@@ -30,6 +30,11 @@ body {
   height: 100vh;
 }
 
+
+#landing h1 {
+  padding-top:80px;
+}
+
 h1 {
   font-size: 80px;
   color:white;
@@ -41,6 +46,7 @@ h1 {
   background-color: #13A492;
   padding: 16px;
   border-radius: 8px;
+  font-weight:bold;
 }
 
 input[type="submit"] {
