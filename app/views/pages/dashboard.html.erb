@@ -19,7 +19,7 @@
                 <p><strong>Age: </strong><%= "#{animal.age}" %> years</p>
                 <p><strong>Price: </strong><%= "#{animal.price.to_i}" %>€ (per day)</p>
               </div>
-              <div class="cta"><%= "Show", your_animal_path(animal) %></div>
+              <div class="cta"><%= link_to "Details", your_animal_path(animal) %></div>
             </div>
 
           </div>
