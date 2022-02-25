@@ -1,0 +1,8 @@
+<h1>Booking requests for you:</h1>
+<% @requests.each do |request| %>
+<p><%= request.user.email %> would like to book <%= request.animal.name %> from the <%= request.start_date %> until the <%= request.start_date %></p>
+<p>Status: <%= request.valid %></p>
+<p><%= link_to "Accept Booking", request_path(request, status: 2), method: :put %></p>
+<p><%= link_to "Deny Booking", request_path(request, status: 0), method: :put %></p>
+<% end %>
+<p><%= link_to "Back to my dashboard", dashboard_path %></p>

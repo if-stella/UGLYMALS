@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'requests/index'
+  get 'requests/edit'
+  get 'requests/update'
   # get 'bookings/new'
   # get 'bookings/create'
   # get 'animals/index'
@@ -17,4 +20,5 @@ Rails.application.routes.draw do
   get "/your_animal/:id", to: "animals#your_animal", as: :your_animal
 
   get "/your_bookings", to: "bookings#index", as: :your_bookings
+  resources :requests, only: [:index, :edit, :update]
 end
