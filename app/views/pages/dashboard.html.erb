@@ -19,7 +19,7 @@
                 <p><strong>Age: </strong><%= "#{animal.age}" %> years</p>
                 <p><strong>Price: </strong><%= "#{animal.price.to_i}" %>€ (per day)</p>
               </div>
-              <div class="cta"><%= link_to animal.name, your_animal_path(animal) %></div>
+              <div class="cta"><%= "Show", your_animal_path(animal) %></div>
             </div>
 
           </div>
@@ -42,8 +42,9 @@
             <div class="info">
               <div class="list-details">
                 <h4><strong><%= booking.animal.name %></strong></h4>
-                <p>from <%= booking.start_date %></p>
-                <p>until <%= booking.end_date %></p>
+                <p>Owner: <%= booking.animal.user.first_name.capitalize %></p>
+                <p>Return on: <strong><%= booking.end_date.strftime("%d.%m.%Y") %></strong>
+                (<%= (booking.end_date - Date.today).to_i %> days left)</p>
               </div>
               <div class="cta">
                 <%= link_to "Details", booking_path(booking) %>
