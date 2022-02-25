@@ -43,6 +43,19 @@ h1 {
   border-radius: 8px;
 }
 
+input[type="submit"] {
+  text-decoration:none;
+  color: white;
+  background-color: #13A492;
+  padding: 16px;
+  border: 0;
+  border-radius: 8px;
+}
+
+input[type="submit"]:hover {
+  background-color: #01524a;
+}
+
 .banana {
   text-decoration: none;
   color: white;
