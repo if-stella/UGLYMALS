@@ -7,7 +7,18 @@ class RequestsController < ApplicationController
         @requests << booking
       end
     end
-    @requests = @requests.sort_by { |request| request.status }
+    @confirmed = []
+    @pending = []
+    @denied = []
+    @requests.each do |r|
+      if r.status == 2
+        @confirmed << r
+      elsif r.status == 1
+        @pending << r
+      else
+        @denied << r
+      end
+    end
   end
 
   def edit
@@ -29,5 +40,4 @@ class RequestsController < ApplicationController
     @request.save!
     redirect_to requests_path
   end
-
 end

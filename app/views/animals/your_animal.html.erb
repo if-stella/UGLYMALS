@@ -3,9 +3,35 @@
     <%= render "show", animal: @animal %>
     <% if @animal.bookings.first %>
       <% @animal.bookings.each do |b| %>
-        <p> is booked with: <%= b.user.first_name.capitalize %> (<%= b.user.email %>)</p>
-        <p> from: <%= b.start_date %></p>
-        <p> until: <%= b.end_date %></p>
+        <div class="pb-3 mb-4">
+          <% if @confirmed %>
+          <h4>Confirmed:</h4>
+          <% @confirmed.each do |b| %>
+            <p> is booked with: <%= b.user.first_name.capitalize %> (<%= b.user.email %>)</p>
+            <p> from: <%= b.start_date %></p>
+            <p> until: <%= b.end_date %></p>
+            <div>Status: <%= b.valid %> <i class="fa fa-solid check-double"></i></div>
+          <% end %>
+          <% end %>
+          <% if @pending %>
+          <h4>Pending:</h4>
+          <% @pending.each do |b| %>
+            <p> is booked with: <%= b.user.first_name.capitalize %> (<%= b.user.email %>)</p>
+            <p> from: <%= b.start_date %></p>
+            <p> until: <%= b.end_date %></p>
+            <div>Status: <%= b.valid %> <i class="fa fa-solid fa-spinner"></i></div>
+          <% end %>
+          <% end %>
+          <% if @denied %>
+          <h4>Denied:</h4>
+          <% @denied.each do |b| %>
+            <p> is booked with: <%= b.user.first_name.capitalize %> (<%= b.user.email %>)</p>
+            <p> from: <%= b.start_date %></p>
+            <p> until: <%= b.end_date %></p>
+            <div>Status: <%= b.valid %> <i class="fa fa-solid fa-thumbs-down"></i></div>
+          <% end %>
+          <% end %>
+        </div>
       <% end %>
     <% else %>
       <p><%= @animal.name %> does not have any bookings:( </p>
