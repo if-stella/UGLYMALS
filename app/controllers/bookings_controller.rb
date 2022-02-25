@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
   private
 
   def total_price(booking, animal)
-    days = booking.end_date - booking.start_date
+    days = (booking.end_date - booking.start_date).to_i
     price_per_day = animal.price
     return (days * price_per_day).to_i
   end
