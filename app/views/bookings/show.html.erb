@@ -1,4 +1,5 @@
 <h1>Booking for <%= @booking.user.email %></h1>
+<p>Status: <%= @booking.valid %></p>
 <p>Starting on: <%= @booking.start_date %></p>
 <p>Ending on: <%= @booking.end_date %></p>
 <p>Your Uglymal: <%= @booking.animal.name %> is a <%= @booking.animal.species %> and <%= @booking.animal.age %> years old.</p>

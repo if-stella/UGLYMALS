@@ -78,7 +78,8 @@ class AnimalsController < ApplicationController
 
   def destroy
     @animal.destroy
-    redirect_to dashboard_path, notice: "Your animal profile has been deleted"
+    flash[:notice] = "Your animal profile has been deleted"
+    redirect_to dashboard_path
   end
 
   private

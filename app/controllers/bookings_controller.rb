@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).where(user: current_user)
   end
 
+
   def show
   end
 
@@ -20,10 +21,11 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.animal = @animal
     @booking.total_price = total_price(@booking, @animal)
+    @booking.status = 1
     authorize @booking
     @booking.save!
     if @booking.save!
-      redirect_to booking_path(@booking), notice: "Your booking has been confirmed"
+      redirect_to booking_path(@booking), notice: "Your booking is now pending, wait for #{@booking.animal.name}'s owner to confirm it."
     else
       render :new
     end
