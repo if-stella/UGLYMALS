@@ -4,6 +4,8 @@
     <%= render "bookings/form", animal: @animal, booking: @booking %>
     <br>
   </div>
-  <%= link_to 'Back to index', animals_path, class: "btn btn-primary" %>
+  <div class="cta">
+    <%= link_to 'Back to index', animals_path %>
+  </div>
   <%# <%= link_to 'Book', new_animal_booking_path(@animal), class: "btn btn-primary" %>
 </div>
