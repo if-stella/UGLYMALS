@@ -7,21 +7,36 @@
 .card {
   border-radius:20px;
   border:none;
+  background:hsl(0, 0%, 95%)
 }
 
 .card-title {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 40px;
+  padding-left: 32px;
+  padding-top: 32px;
+  color:red;
+}
+
+.card-title img{
+width: 80px;
+height: 80px;
+}
+
+.card-title h2{
+margin-left:16px;
+font-size: 24px;
 }
 
 .card-detail-right {
-  margin-left: 40px;
+  margin-left: 80px;
+  margin-left: 80px;
+  width:100%;
 }
 
 .card-title h2 {
-  color: black;
+  color: hsla(0, 0%, 0%, 0.851);
 }
 
 .card-details {
@@ -49,7 +64,6 @@
    }
 
 .image {
-  height: 300px;
   width: 100%;
   object-fit: cover;
 
@@ -57,11 +71,35 @@
     object-fit: cover;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    height: 240px;
   }
+}
+
+.animal-page a{
+  border: none;
+}
+
+.animal-page label{
+  color:rgb(0, 0, 0);
 }
 
 .info {
   text-align:left;
   padding: 24px;
+}
+
+.show-form {
+  padding-right:32px;
+  padding-left:32px;
+  padding-bottom:32px;
+}
+
+.show-form a {
+  border:none;
+}
+
+.show {
+  margin-bottom:40px;
+  margin-top:40px;
 }
 
