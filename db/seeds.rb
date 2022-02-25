@@ -48,7 +48,7 @@ species = %w[turtle dog fish possum bird reptile tapir]
     age: rand(0..20),
     price: rand(5..30),
     species: species.sample,
-    description: 'Lorem ipsum'
+    description: 'This is a very good animal, he eats a lot though. And bites. He is a muscular marsupial, native to Australia. He is mainly nocturnal, emerging at night to feed on grasses, herbs, bark, and roots.'
   )
   animal.user = User.all.sample
   animal.photo.attach(io: file, filename: "animal_#{counter}.png", content_type: 'image/png')

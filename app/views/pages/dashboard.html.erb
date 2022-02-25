@@ -2,9 +2,9 @@
   <h1><%= @user.first_name.capitalize %>s Dashboard</h1>
     <div class="container">
       <h2>My animals</h2>
-      <div class="cards">
+      <div class="cards-dashboard">
         <% @my_animals.each do |animal| %>
-          <div class="card">
+          <div class="card-dashboard">
 
             <div class="image">
             <% if animal.photo.key %>
@@ -25,15 +25,15 @@
           </div>
         <% end %>
       </div>
-      <div class="cta">
+      <div class="cta-dashboard">
         <%= link_to "Create a new animal", new_animal_path %>
       </div>
     </div>
     <div class="container">
       <h2>My bookings</h2>
-      <div class="cards">
+      <div class="cards-dashboard">
         <% @my_bookings.each do |booking| %>
-          <div class="card">
+          <div class="card-dashboard">
             <div class="image">
             <% if booking.animal.photo.key %>
                 <%= cl_image_tag booking.animal.photo.key, height: "100%", width: "100%" %>
@@ -56,7 +56,7 @@
       </div>
 
     </div>
-  <div class="cta">
+  <div class="cta-dashboard">
     <%= link_to "see cute UGLYMALS", animals_path%>
     <%= link_to "Booking requests for you", requests_path%>
 
