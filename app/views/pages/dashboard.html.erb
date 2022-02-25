@@ -19,13 +19,15 @@
                 <p><strong>Age: </strong><%= "#{animal.age}" %> years</p>
                 <p><strong>Price: </strong><%= "#{animal.price.to_i}" %>€ (per day)</p>
               </div>
-              <div class="cta_full_width"><%= link_to animal.name, your_animal_path(animal) %></div>
+              <div class="cta"><%= link_to animal.name, your_animal_path(animal) %></div>
             </div>
 
           </div>
         <% end %>
       </div>
-      <%= link_to "Create a new animal", new_animal_path, class: "btn btn-primary"%>
+      <div class="cta">
+        <%= link_to "Create a new animal", new_animal_path %>
+      </div>
     </div>
     <div class="container">
       <h2>My bookings</h2>
@@ -43,7 +45,7 @@
                 <p>from <%= booking.start_date %></p>
                 <p>until <%= booking.end_date %></p>
               </div>
-              <div class="cta_full_width">
+              <div class="cta">
                 <%= link_to "Details", booking_path(booking) %>
               </div>
             </div>
@@ -53,7 +55,7 @@
       </div>
 
     </div>
-  <div class="p-3 btn-primary all-animals-link bg-dark">
+  <div class="cta">
     <%= link_to "see cute UGLYMALS", animals_path%>
     <%= link_to "Booking requests for you", requests_path%>
 
