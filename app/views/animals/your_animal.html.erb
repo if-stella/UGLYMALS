@@ -10,7 +10,7 @@
     <% else %>
       <p><%= @animal.name %> does not have any bookings:( </p>
     <% end %>
-    <div class="cta">
+    <div class="cta-dashboard">
       <%= link_to "Delete Animal", animal_path(@animal), confirm: "Are you sure you want to delete your animal?", method: :delete %>
       <%= link_to "Edit your animal", edit_animal_path(@animal) %>
       <%= link_to "Back to your dashboard", dashboard_path %>
