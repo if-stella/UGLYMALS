@@ -1,8 +1,25 @@
-<h1>All your bookings</h1>
-<ul>
-  <% @bookings.each do |booking| %>
-  <li class="cta">
-    <%= link_to booking.animal.name, booking_path(booking) %>
-  </li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>My bookings</h1>
+  <div class="cards">
+    <% @bookings.each do |booking| %>
+      <div class="card">
+        <div class="image">
+        <% if booking.animal.photo.key %>
+            <%= cl_image_tag booking.animal.photo.key, height: "100%", width: "100%" %>
+          <% end %>
+        </div>
+        <div class="info">
+          <div class="list-details">
+            <h4><strong><%= booking.animal.name %></strong></h4>
+            <p>Owner: <%= booking.animal.user.first_name.capitalize %></p>
+            <p>Return on: <strong><%= booking.end_date.strftime("%d.%m.%Y") %></strong>
+            (<%= (booking.end_date - Date.today).to_i %> days left)</p>
+          </div>
+          <div class="cta">
+            <%= link_to "Details", booking_path(booking) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
