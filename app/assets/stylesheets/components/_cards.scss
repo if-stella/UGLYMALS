@@ -7,19 +7,24 @@
   padding-right: 40px;
 }
 
+.indexcards {
+  margin-top:24px;
+}
 .card {
   border-radius:20px;
   border:none;
-  background:hsl(0, 0%, 100%)
+  background:hsl(0, 0%, 100%);
+  box-shadow:  20px 20px 60px #108b7c,
+             -20px -20px 60px #16bda8;
 }
 
-.cards-dashboard {
+.cards-duck {
   display: flex;
   justify-content: center;
   margin: 50px;
 }
 
-.card-dashboard {
+.card-duck {
   border-radius:20px;
   border:none;
   background:hsl(0, 0%, 100%);
@@ -27,27 +32,46 @@
   margin: 0 8px;
 }
 
+#show-animal {
+  align-items:center;
+}
+
 #show-title {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 32px;
-  padding-top: 32px;
+  margin-left:40px;
+  margin-top:16px;
+
   img {
     width: 80px;
     height: 80px;
+    border-radius:100%;
   }
   h2 {
-    margin-left:16px;
     font-size: 24px;
     color: hsla(0, 0%, 0%, 0.851);
+    padding-bottom:0px;
+    margin:0px;
+    margin-left:16px;
   }
 }
 
 .show-detail-right {
-  margin-left: 80px;
-  margin-left: 80px;
+  margin-left: 40px;
   width:100%;
+  background:#88dbd1;
+  padding:16px;
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+  border-bottom-left-radius:20px;
+  box-shadow:  20px 20px 60px #108b7c,
+             -20px -20px 60px #16bda8;
+
+
+  p {
+    margin:0;
+  }
 }
 
 .show-details {
@@ -55,7 +79,7 @@
   flex-direction: row;
   align-items: flex-start;
   text-align: left;
-  margin: 40px;
+  margin: 24px 40px 0px 40px;
 }
 
 .cta_full_width a {
@@ -102,16 +126,32 @@
 }
 
 .show-form {
-  padding-right:32px;
-  padding-left:32px;
-  padding-bottom:32px;
+  width:100% !important;
 }
+
 
 .show-form a {
   border:none;
 }
 
 .show {
-  margin-bottom:40px;
   margin-top:40px;
+  padding-bottom:0px;
+  margin-bottom:0px;
+  border-radius:20px;
+  border:none;
+  text-align:center;
+  align-items:center;
+  background:#F8F8F8;
+  max-width:800px;
+}
+
+.new_booking {
+  padding:40px;
+}
+
+.upperhalf {
+  background:#13A492;
+  border-top-left-radius:19px;
+  border-top-right-radius:19px;
 }
