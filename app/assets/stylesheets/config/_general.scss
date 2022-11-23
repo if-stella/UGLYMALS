@@ -5,7 +5,8 @@
 }
 
 .main-container h1 {
-  padding-top: 64px}
+  padding-top: 64px;
+}
 
 .search-bar {
   display: flex;
@@ -13,8 +14,12 @@
   gap: 16px;
   justify-content: center;
   align-items: center;
+  margin:auto;
   padding-left: 40px;
   padding-right: 40px;
+  z-index:50;
+  position:relative;
+  max-width:1200px;
 }
 
 .search-bar > * {

@@ -77,11 +77,13 @@ input[type="submit"]:hover {
   font-weight:bold;
   border:none;
   background-color: #13A492;
-  padding: 8px;
   border-radius: 8px;
   flex-grow: 0;
+  height:40px;
+  padding:0px 40px !important;
   margin-bottom: -18px;
 }
+
 
 .banana:hover {
   background-color: #01524a;

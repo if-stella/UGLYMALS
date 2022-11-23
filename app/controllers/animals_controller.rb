@@ -6,7 +6,7 @@ class AnimalsController < ApplicationController
   def index
     @animals = policy_scope(Animal).all
     @species = []
-    @age = (0..20).to_a
+    @age = (0..10).to_a
     Animal.all.each do |animal|
       @species << animal.species
     end

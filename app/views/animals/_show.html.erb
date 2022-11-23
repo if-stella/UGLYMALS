@@ -1,17 +1,19 @@
-<div id="show-title">
-  <% if animal.photo.key %>
-    <%= cl_image_tag animal.photo.key, height: 200, width: 200, radius: :max, crop: :fill  %>
-  <% end %>
-  <h2><strong><%= animal.name %></strong>, the <%= animal.species.capitalize %></h1>
-</div>
-<div class="show-details">
-  <div class="show-detail-left">
-    <p><strong>Age:</strong> <%= animal.age %></p>
-    <p><strong>Owner:</strong> <%= animal.user.email %></p>
-    <p><strong>Price per day:</strong> <%= animal.price.to_i %>€</p>
+<div class="upperhalf">
+  <div id="show-title">
+    <% if animal.photo.key %>
+      <%= cl_image_tag animal.photo.key, height: 200, width: 200, radius: :max, crop: :fill  %>
+    <% end %>
+    <h2><strong><%= animal.name %></strong>, the <%= animal.species.capitalize %></h1>
   </div>
-  <div class="show-detail-right">
-    <p><strong>Details:</strong></p>
-    <p><%= animal.description %></p>
+  <div class="show-details">
+    <div class="show-detail-left">
+      <p><strong>Age:</strong> <%= animal.age %></p>
+      <p><strong>Owner:</strong> <%= animal.user.email %></p>
+      <p><strong>Price per day:</strong> <%= animal.price.to_i %>€</p>
+    </div>
+    <div class="show-detail-right">
+      <p><strong>Details:</strong></p>
+      <p><%= animal.description %></p>
+    </div>
   </div>
 </div>

@@ -39,16 +39,23 @@ end
 puts "creating animals..."
 counter = 0
 species = %w[turtle dog fish possum bird reptile tapir]
+
 10.times do
   counter += 1
   # make sure that images for seed animals are correctly named in app/assets/images/seed
   file = File.open(Rails.root.join("app/assets/images/seed/animal_#{counter}.jpg"))
   animal = Animal.create(
     name: Faker::Name.first_name,
-    age: rand(0..20),
+    age: rand(0..10),
     price: rand(5..30),
     species: species.sample,
-    description: 'This is a very good animal, he eats a lot though. And bites. He is a muscular marsupial, native to Australia. He is mainly nocturnal, emerging at night to feed on grasses, herbs, bark, and roots.'
+    description: [
+      "A good boi!",
+      "He's an active boy, so he needs lots of exercise and high fences.",
+      "What a hot mess!",
+      "He loves a run, so if you’re looking for a jogging companion or someone to take long walks with – then he's your man!",
+      "She is a sweet, relaxed girl with a gentle and nurturing soul. Ideal for a family with older children, she'd be the perfect companion."
+      ].sample
   )
   animal.user = User.all.sample
   animal.photo.attach(io: file, filename: "animal_#{counter}.png", content_type: 'image/png')

@@ -1,7 +1,7 @@
 <%= simple_form_for ([@animal, @booking]) do |f| %>
 
-  <%= f.input :start_date %>
-  <%= f.input :end_date%>
+  <%= f.input :start_date, as: :date, html5: true, default: Date.today %>
+  <%= f.input :end_date, as: :date, html5: true, default: Date.today %>
 
   <%= f.submit "Book #{animal.name}"%>
 <% end %>
