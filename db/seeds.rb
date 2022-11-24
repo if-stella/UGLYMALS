@@ -37,25 +37,24 @@ end
 # User.create(email: "ida@schwarzkopf.com", password: "123456")
 
 puts "creating animals..."
-counter = 0
-species = %w[turtle dog fish possum bird reptile tapir]
+species = ["Turtle", "Aye Aye", "Old dog", "Opossum", "Elephant seal", "Weird bird", "Axolotl", "Potoo", "Dog", "Blobfish", "Ostrich", "Pony"]
 
-10.times do
-  counter += 1
+
+species.each_with_index do |s, counter|
   # make sure that images for seed animals are correctly named in app/assets/images/seed
-  file = File.open(Rails.root.join("app/assets/images/seed/animal_#{counter}.jpg"))
+  file = File.open(Rails.root.join("app/assets/images/seed/animal_#{counter+1}.jpg"))
   animal = Animal.create(
     name: Faker::Name.first_name,
     age: rand(0..10),
     price: rand(5..30),
-    species: species.sample,
+    species: s,
     description: [
       "A good boi!",
       "He's an active boy, so he needs lots of exercise and high fences.",
       "What a hot mess!",
       "He loves a run, so if you’re looking for a jogging companion or someone to take long walks with – then he's your man!",
       "She is a sweet, relaxed girl with a gentle and nurturing soul. Ideal for a family with older children, she'd be the perfect companion."
-      ].sample
+    ].sample
   )
   animal.user = User.all.sample
   animal.photo.attach(io: file, filename: "animal_#{counter}.png", content_type: 'image/png')

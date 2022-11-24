@@ -3,4 +3,5 @@
     <%= render "show", animal: @animal %>
     <div class="show-form animal-page"><%= render "bookings/form", animal: @animal, booking: @booking %></div>
   </div>
+  <%= link_to "Back to all animals", animals_path, class:"mt-5 backlink" %>
 </div>

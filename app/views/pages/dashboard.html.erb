@@ -1,17 +1,15 @@
 <div class="container">
   <h1><%= @user.first_name.capitalize %>s Dashboard</h1>
     <div class="container">
-      <h2>My animals</h2>
-      <div class="cards-dashboard">
+      <h2 class="dashboardhead">My animals</h2>
+      <div class="d-flex gap-5">
         <% @my_animals.each do |animal| %>
           <div class="card-dashboard">
-
             <div class="image">
-            <% if animal.photo.key %>
+              <% if animal.photo.key %>
                 <%= cl_image_tag animal.photo.key, height: "100%", width: "100%" %>
               <% end %>
             </div>
-
             <div class="info">
               <div id="list-details">
                 <h4><strong><%= "#{animal.name}" %></strong></h4>
@@ -21,7 +19,6 @@
               </div>
               <div class="cta"><%= link_to "Details", your_animal_path(animal) %></div>
             </div>
-
           </div>
         <% end %>
       </div>
@@ -30,8 +27,8 @@
       </div>
     </div>
     <div class="container">
-      <h2>My bookings</h2>
-      <div class="cards-dashboard">
+      <h2 class="dashboardhead">My bookings</h2>
+      <div class="d-flex gap-5">
         <% @my_bookings.each do |booking| %>
           <div class="card-dashboard">
             <div class="image">
